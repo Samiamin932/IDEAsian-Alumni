@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :member_trees
   resources :alumni_assignments
   resources :mentor_assignments
   resources :mentees
