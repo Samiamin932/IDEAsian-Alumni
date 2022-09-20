@@ -1,0 +1,27 @@
+<%= form_with(model: mentor_assignment) do |form| %>
+  <% if mentor_assignment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(mentor_assignment.errors.count, "error") %> prohibited this mentor_assignment from being saved:</h2>
+
+      <ul>
+        <% mentor_assignment.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :Mentor_id %>
+    <%= form.number_field :Mentor_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Mentee_id %>
+    <%= form.number_field :Mentee_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
