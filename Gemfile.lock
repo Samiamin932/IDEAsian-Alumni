@@ -184,6 +184,8 @@ GEM
       unicode-display_width (>= 1.4.0, < 3.0)
     rubocop-ast (1.11.0)
       parser (>= 3.0.1.1)
+    ruby-graphviz (1.2.5)
+      rexml
     ruby-progressbar (1.11.0)
     rubyzip (2.3.2)
     sass-rails (6.0.0)
@@ -212,6 +214,8 @@ GEM
       sprockets (>= 3.0.0)
     thor (1.2.1)
     tilt (2.0.11)
+    tree_support (0.1.9)
+      activesupport
     turbolinks (5.2.1)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -257,9 +261,11 @@ DEPENDENCIES
   rexml
   rspec-rails
   rubocop
+  ruby-graphviz (~> 1.2)
   sass-rails (>= 6)
   selenium-webdriver
   spring
+  tree_support (~> 0.1.9)
   turbolinks (~> 5)
   tzinfo-data
   web-console (>= 4.1.0)

@@ -1,0 +1,17 @@
+<%= form_with(model: member_tree) do |form| %>
+  <% if member_tree.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(member_tree.errors.count, "error") %> prohibited this member_tree from being saved:</h2>
+
+      <ul>
+        <% member_tree.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

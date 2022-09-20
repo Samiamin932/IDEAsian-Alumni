@@ -1,0 +1,2 @@
+class MemberTree < ApplicationRecord
+end
