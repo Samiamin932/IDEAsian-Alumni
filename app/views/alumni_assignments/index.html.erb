@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Alumni Assignments</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Alumni</th>
+      <th>Mentor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alumni_assignments.each do |alumni_assignment| %>
+      <tr>
+        <td><%= alumni_assignment.Alumni_id %></td>
+        <td><%= alumni_assignment.Mentor_id %></td>
+        <td><%= link_to 'Show', alumni_assignment %></td>
+        <td><%= link_to 'Edit', edit_alumni_assignment_path(alumni_assignment) %></td>
+        <td><%= link_to 'Destroy', alumni_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Alumni Assignment', new_alumni_assignment_path %>
