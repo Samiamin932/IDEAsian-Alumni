@@ -1,1 +1,144 @@
 <h1>LANDING PAGE FOR IDEASIAN_ALUMNI APP</h1>
+
+
+<h3>
+<%= link_to 'Tree View', member_trees_path %>
+</h3>
+
+<h1>Alumni</h1>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alumnis.each do |alumni| %>
+      <tr>
+        <td><%= alumni.first_name %></td>
+        <td><%= alumni.middle_name %></td>
+        <td><%= alumni.last_name %></td>
+        <td><%= alumni.email %></td>
+        <td><%= alumni.phone_number %></td>
+        <td><%= link_to 'Show', alumni %></td>
+        <td><%= link_to 'Edit', edit_alumni_path(alumni) %></td>
+        <td><%= link_to 'Destroy', alumni, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Mentors</h1>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mentors.each do |mentor| %>
+      <tr>
+        <td><%= mentor.first_name %></td>
+        <td><%= mentor.middle_name %></td>
+        <td><%= mentor.last_name %></td>
+        <td><%= mentor.email %></td>
+        <td><%= mentor.phone_number %></td>
+        <td><%= link_to 'Show', mentor %></td>
+        <td><%= link_to 'Edit', edit_mentor_path(mentor) %></td>
+        <td><%= link_to 'Destroy', mentor, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Mentees</h1>
+<table>
+  <thead>
+    <tr>
+      <th>First name</th>
+      <th>Middle name</th>
+      <th>Last name</th>
+      <th>Email</th>
+      <th>Phone number</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mentees.each do |mentee| %>
+      <tr>
+        <td><%= mentee.first_name %></td>
+        <td><%= mentee.middle_name %></td>
+        <td><%= mentee.last_name %></td>
+        <td><%= mentee.email %></td>
+        <td><%= mentee.phone_number %></td>
+        <td><%= link_to 'Show', mentee %></td>
+        <td><%= link_to 'Edit', edit_mentee_path(mentee) %></td>
+        <td><%= link_to 'Destroy', mentee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Alumni <-> Mentor</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Alumni</th>
+      <th>Mentor</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @alumni_assignments.each do |alumni_assignment| %>
+      <tr>
+        <td><%= Alumni.where(id: alumni_assignment.Alumni_id).last.first_name %>
+            <%= Alumni.where(id: alumni_assignment.Alumni_id).last.last_name %></td>
+        <td><%= Mentor.where(id: alumni_assignment.Mentor_id).last.first_name %>
+            <%= Mentor.where(id: alumni_assignment.Mentor_id).last.last_name %></td>
+        <td><%= link_to 'Show', alumni_assignment %></td>
+        <td><%= link_to 'Edit', edit_alumni_assignment_path(alumni_assignment) %></td>
+        <td><%= link_to 'Destroy', alumni_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h1>Mentor <-> Mentee</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Mentor</th>
+      <th>Mentee</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @mentor_assignments.each do |mentor_assignment| %>
+      <tr>
+        <td><%= Mentor.where(id: mentor_assignment.Mentor_id).last.first_name %>
+            <%= Mentor.where(id: mentor_assignment.Mentor_id).last.last_name %></td>
+        <td><%= Mentee.where(id: mentor_assignment.Mentee_id).last.first_name %>
+            <%= Mentee.where(id: mentor_assignment.Mentee_id).last.last_name %></td>
+        <td><%= link_to 'Show', mentor_assignment %></td>
+        <td><%= link_to 'Edit', edit_mentor_assignment_path(mentor_assignment) %></td>
+        <td><%= link_to 'Destroy', mentor_assignment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

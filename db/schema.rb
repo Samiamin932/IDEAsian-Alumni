@@ -10,9 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 0) do
+
+ActiveRecord::Schema.define(version: 2022_09_20_021103) do
+
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+
+  create_table "alumni_assignments", force: :cascade do |t|
+    t.integer "Alumni_id"
+    t.integer "Mentor_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "alumnis", force: :cascade do |t|
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "member_trees", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mentees", force: :cascade do |t|
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mentor_assignments", force: :cascade do |t|
+    t.integer "Mentor_id"
+    t.integer "Mentee_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "mentors", force: :cascade do |t|
+    t.string "first_name"
+    t.string "middle_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
 
 end

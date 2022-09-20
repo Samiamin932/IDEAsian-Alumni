@@ -60,3 +60,6 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 #Github CI
 gem 'brakeman'
 gem 'rubocop'
+gem "tree_support", "~> 0.1.9"
+
+gem "ruby-graphviz", "~> 1.2"
