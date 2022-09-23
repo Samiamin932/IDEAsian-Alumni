@@ -1,5 +1,7 @@
 require 'rails_helper'
 
-RSpec.describe Mentor, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
-end
+#RSpec.describe Mentor, type: :model do
+  #if we get mentor credentials, make a mentor account
+
+  #if we get incorrect credentials, leave on login page
+#end
