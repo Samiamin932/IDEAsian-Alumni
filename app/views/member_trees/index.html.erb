@@ -1,7 +1,14 @@
-<p id="notice"><%= notice %></p>
+<html>
+    <head>
+        <h1>Member Trees</h1>
+    </head>
+    
+    <body>
+        <p id="notice"><%= notice %></p>
+        <div id="Tree">
+            <%= react_component('TreeComponent') %>
+        </div>
+        <%= link_to 'Landing Page', root_path %>
+    </body>
 
-<h1>Member Trees</h1>
-
-<%= @root %>
-
-<%= link_to 'Landing Page', root_path %>
+</html>

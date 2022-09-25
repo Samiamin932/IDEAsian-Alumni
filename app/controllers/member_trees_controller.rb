@@ -22,17 +22,6 @@ class MemberTreesController < ApplicationController
   # GET /member_trees or /member_trees.json
   def index
     @member_trees = MemberTree.all
-    require "bundler/setup"
-    require "tree_support"
-    Node.include(TreeSupport::Stringify)
-    @root = TreeSupport.tree(Node.new("*Alumni*") do
-      add "Mentor1" do
-        add "Mentee1"
-        add "Mentee2" end
-      add "Mentor2" do
-        add "Mentee3"
-        add "Mentee4" end
-      end)
   end
 
   # GET /member_trees/1 or /member_trees/1.json
