@@ -5,10 +5,15 @@
     
     <body>
         <p id="notice"><%= notice %></p>
-        <div id="Tree">
-            <%= react_component('TreeComponent') %>
+        <div class="column-left">
+            <%= react_component('TreeMenuBar') %>
+            <%= link_to 'Landing Page', root_path %>
         </div>
-        <%= link_to 'Landing Page', root_path %>
+        <div class="column-right">
+            <div id="Tree">
+                <%= react_component('TreeComponent') %>
+            </div>
+        </div>
     </body>
 
 </html>
