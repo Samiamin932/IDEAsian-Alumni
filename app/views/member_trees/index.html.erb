@@ -10,9 +10,40 @@
             <%= link_to 'Landing Page', root_path %>
         </div>
         <div class="column-right">
-            <div id="Tree">
-                <%= react_component('TreeComponent') %>
-            </div>
+            <!--#if multiple mentors mentor the same mentee, join those groups #display all groups at end-->
+            <% assignments = Hash.new() %>
+            <% @mentor_assignments.each do |m_ass| %>
+                <% if assignments.has_key?(m_ass.Mentor_id) then %>
+                    <% assignments[m_ass.Mentor_id].push(m_ass.Mentee_id) %>
+                <% else %>
+                    <% assignments[m_ass.Mentor_id] = Array.new(1, m_ass.Mentee_id) %>
+                <% end %>
+            <% end %>
+
+            <table>
+            <thead>
+                <tr>
+                <th>Mentor</th>
+                <th>Mentee(s)</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% assignments.keys.each do |mentor| %>
+                <tr>
+                    <% target = @mentors.find(mentor) %>
+                    <td><%= target.first_name + ' ' + target.middle_name + ' ' + target.last_name %></td>
+                    <% mentee_vals = assignments[mentor] %>
+                    <% mentee_block = "" %>
+                    <% mentee_vals.each do |mid| %>
+                        <% target_mentee = @mentees.find(mid) %>
+                        <% mentee_block += target_mentee.first_name + ' ' + target_mentee.middle_name + ' ' + target_mentee.last_name + ' ' %>
+                    <% end %>
+                    <td><%= mentee_block %></td>
+                </tr>
+                <% end %>
+            </tbody>
+            </table>
         </div>
     </body>
 

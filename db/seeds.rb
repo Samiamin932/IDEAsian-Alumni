@@ -29,7 +29,7 @@ mentors = Mentor.create([{ first_name: 'Anna', middle_name: '', last_name: '',
                         { first_name: 'Diana', middle_name: '', last_name: '', 
                         email: '', phone_number: ''},
                         { first_name: 'Eliza', middle_name: '', last_name: '', 
-                        email: '', phone_number: ''}
+                        email: '', phone_number: ''},
                         { first_name: 'Hanna', middle_name: '', last_name: '', 
                         email: '', phone_number: ''},
                         { first_name: 'Jedd', middle_name: '', last_name: '', 
