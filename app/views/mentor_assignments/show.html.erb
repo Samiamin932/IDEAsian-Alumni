@@ -10,5 +10,10 @@
   <%= @mentor_assignment.Mentee_id %>
 </p>
 
+<p>
+  <strong>Class Year:</strong>
+  <%= @mentor_assignment.class_year %>
+</p>
+
 <%= link_to 'Edit', edit_mentor_assignment_path(@mentor_assignment) %> |
 <%= link_to 'Back', mentor_assignments_path %>
