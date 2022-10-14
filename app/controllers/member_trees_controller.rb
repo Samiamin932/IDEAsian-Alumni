@@ -21,7 +21,10 @@ class MemberTreesController < ApplicationController
 
   # GET /member_trees or /member_trees.json
   def index
+    @mentors = Mentor.all
+    @mentees = Mentee.all
     @member_trees = MemberTree.all
+    @mentor_assignments = MentorAssignment.all
   end
 
   # GET /member_trees/1 or /member_trees/1.json
