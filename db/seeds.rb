@@ -5,10 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-alumnis = Alumni.create([{ first_name: 'Yonghwan', middle_name: '', last_name: 'Kim', 
-                        email: 'ykim@tamu.edu', phone_number: '123-456-789'},
-                        { first_name: 'Cyrus', middle_name: '', last_name: 'Buhariwala', 
-                        email: 'cwaluigi@tamu.edu', phone_number: '123-456-788'}])
 
 mentors = Mentor.create([{ first_name: 'Anna', middle_name: '', last_name: '', 
                         email: '', phone_number: ''},
@@ -217,8 +213,6 @@ mentees = Mentee.create([{ first_name: 'Aarya', middle_name: '', last_name: 'New
                         email: '', phone_number: ''},
                         { first_name: 'Timothy', middle_name: '', last_name: 'Aing',
                         email: '', phone_number: ''}])
-
-alumni_assignments = AlumniAssignment.create([{Alumni_id: 1, Mentor_id: 1}, {Alumni_id: 2, Mentor_id: 2}])
 
 mentor_assignments = MentorAssignment.create([{Mentor_id: 1, Mentee_id: 1, class_year:'2022-2023'},{Mentor_id: 2, Mentee_id: 1, class_year:'2022-2023'},
                                             {Mentor_id: 1, Mentee_id: 2, class_year:'2022-2023'},{Mentor_id: 2, Mentee_id: 2, class_year:'2022-2023'},
