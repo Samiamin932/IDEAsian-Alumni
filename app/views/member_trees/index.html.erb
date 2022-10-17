@@ -23,8 +23,7 @@
             <table>
             <thead>
                 <tr>
-                <th>Mentor</th>
-                <th>Mentee(s)</th>
+                <th>Groups</th>
                 </tr>
             </thead>
 
@@ -32,14 +31,19 @@
                 <% assignments.keys.each do |mentor| %>
                 <tr>
                     <% target = @mentors.find(mentor) %>
-                    <td><%= target.first_name + ' ' + target.middle_name + ' ' + target.last_name %></td>
                     <% mentee_vals = assignments[mentor] %>
                     <% mentee_block = "" %>
                     <% mentee_vals.each do |mid| %>
                         <% target_mentee = @mentees.find(mid) %>
                         <% mentee_block += target_mentee.first_name + ' ' + target_mentee.middle_name + ' ' + target_mentee.last_name + ' ' %>
                     <% end %>
-                    <td><%= mentee_block %></td>
+                    <td>
+                        <div style="text-align:center; outline: 1px solid black;">
+                            <b><%= target.first_name + ' ' + target.middle_name + ' ' + target.last_name %></b>
+                            <br>
+                            <%= mentee_block %>
+                        </div>
+                    </td>
                 </tr>
                 <% end %>
             </tbody>
