@@ -4,9 +4,12 @@ class DeviseCreateUsers < ActiveRecord::Migration[6.1]
   def change
     create_table :users do |t|
       ## Database authenticatable
-      t.string :full_name
+      t.string :first_name
+      t.string :last_name
       t.string :uid
       t.string :provider
+      t.string :Major,              null: false, default: ""
+      t.string :Professional_Track,              null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 
