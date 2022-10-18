@@ -1,0 +1,3 @@
+class AlumniAssignment < ApplicationRecord
+
+end

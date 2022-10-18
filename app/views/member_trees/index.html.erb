@@ -1,7 +1,54 @@
-<p id="notice"><%= notice %></p>
+<html>
+    <head>
+        <h1>Member Trees</h1>
+    </head>
+    
+    <body>
+        <p id="notice"><%= notice %></p>
+        <div class="column-left">
+            <%= react_component('TreeMenuBar') %>
+            <%= link_to 'Landing Page', root_path %>
+        </div>
+        <div class="column-right">
+            <!--#if multiple mentors mentor the same mentee, join those groups #display all groups at end-->
+            <% assignments = Hash.new() %>
+            <% @mentor_assignments.each do |m_ass| %>
+                <% if assignments.has_key?(m_ass.Mentor_id) then %>
+                    <% assignments[m_ass.Mentor_id].push(m_ass.Mentee_id) %>
+                <% else %>
+                    <% assignments[m_ass.Mentor_id] = Array.new(1, m_ass.Mentee_id) %>
+                <% end %>
+            <% end %>
 
-<h1>Member Trees</h1>
+            <table>
+            <thead>
+                <tr>
+                <th>Groups</th>
+                </tr>
+            </thead>
 
-<%= @root %>
+            <tbody>
+                <% assignments.keys.each do |mentor| %>
+                <tr>
+                    <% target = @mentors.find(mentor) %>
+                    <% mentee_vals = assignments[mentor] %>
+                    <% mentee_block = "" %>
+                    <% mentee_vals.each do |mid| %>
+                        <% target_mentee = @mentees.find(mid) %>
+                        <% mentee_block += target_mentee.first_name + ' ' + target_mentee.middle_name + ' ' + target_mentee.last_name + ' ' %>
+                    <% end %>
+                    <td>
+                        <div style="text-align:center; outline: 1px solid black;">
+                            <b><%= target.first_name + ' ' + target.middle_name + ' ' + target.last_name %></b>
+                            <br>
+                            <%= mentee_block %>
+                        </div>
+                    </td>
+                </tr>
+                <% end %>
+            </tbody>
+            </table>
+        </div>
+    </body>
 
-<%= link_to 'Landing Page', root_path %>
+</html>
