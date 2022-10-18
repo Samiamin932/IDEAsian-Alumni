@@ -3,7 +3,7 @@ class MentorAssignmentsController < ApplicationController
 
   # GET /mentor_assignments or /mentor_assignments.json
   def index
-    @mentor_assignments = MentorAssignment.all
+    @mentor_assignments = MentorAssignment.filter(params.slice(:class_year))
   end
 
   # GET /mentor_assignments/1 or /mentor_assignments/1.json

@@ -1,3 +1,0 @@
-class Alumni < ApplicationRecord
-
-end

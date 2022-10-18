@@ -8,6 +8,11 @@
         <div class="column-left">
             <%= react_component('TreeMenuBar') %>
             <%= link_to 'Landing Page', root_path %>
+            <%= form_with do |form| %>
+                <%= form.select :city, ["2022-2023", "2021-2022"] %>
+                <%= form.submit "Submit" %>
+            <% end %>
+
         </div>
         <div class="column-right">
             <!--#if multiple mentors mentor the same mentee, join those groups #display all groups at end-->
@@ -18,6 +23,16 @@
                 <% else %>
                     <% assignments[m_ass.Mentor_id] = Array.new(1, m_ass.Mentee_id) %>
                 <% end %>
+            <% end %>
+            <% assignments_2021 = Hash.new() %>
+            <% @mentor_assignments_2021.each do |m_ass1| %>
+                <%# <% if m_ass.class_year == '2022-2023' then%>
+                <% if assignments_2021.has_key?(m_ass1.Mentor_id) then %>
+                    <% assignments_2021[m_ass1.Mentor_id].push(m_ass1.Mentee_id) %>
+                <% else %>
+                    <% assignments_2021[m_ass1.Mentor_id] = Array.new(1, m_ass1.Mentee_id) %>
+                <% end %>
+                <%# <% end %>
             <% end %>
 
             <table>
@@ -30,6 +45,30 @@
 
             <tbody>
                 <% assignments.keys.each do |mentor| %>
+                <tr>
+                    <% target = @mentors.find(mentor) %>
+                    <td><%= target.first_name + ' ' + target.middle_name + ' ' + target.last_name %></td>
+                    <% mentee_vals = assignments[mentor] %>
+                    <% mentee_block = "" %>
+                    <% mentee_vals.each do |mid| %>
+                        <% target_mentee = @mentees.find(mid) %>
+                        <% mentee_block += target_mentee.first_name + ' ' + target_mentee.middle_name + ' ' + target_mentee.last_name + ' ' %>
+                    <% end %>
+                    <td><%= mentee_block %></td>
+                </tr>
+                <% end %>
+            </tbody>
+            </table>
+            <table>
+            <thead>
+                <tr>
+                <th>Mentor</th>
+                <th>Mentee(s)</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <% assignments_2021.keys.each do |mentor| %>
                 <tr>
                     <% target = @mentors.find(mentor) %>
                     <td><%= target.first_name + ' ' + target.middle_name + ' ' + target.last_name %></td>

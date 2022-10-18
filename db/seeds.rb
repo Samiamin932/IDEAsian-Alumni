@@ -294,4 +294,5 @@ mentor_assignments = MentorAssignment.create([{Mentor_id: 1, Mentee_id: 1, class
                                             {Mentor_id: 21, Mentee_id: 78, class_year:'2022-2023'},{Mentor_id: 22, Mentee_id: 78, class_year:'2022-2023'},
                                             {Mentor_id: 21, Mentee_id: 79, class_year:'2022-2023'},{Mentor_id: 22, Mentee_id: 79, class_year:'2022-2023'},
                                             {Mentor_id: 21, Mentee_id: 80, class_year:'2022-2023'},{Mentor_id: 22, Mentee_id: 80, class_year:'2022-2023'},
-                                            {Mentor_id: 21, Mentee_id: 81, class_year:'2022-2023'},{Mentor_id: 22, Mentee_id: 81, class_year:'2022-2023'}])
+                                            {Mentor_id: 21, Mentee_id: 81, class_year:'2022-2023'},{Mentor_id: 22, Mentee_id: 81, class_year:'2022-2023'},
+                                            {Mentor_id: 21, Mentee_id: 81, class_year:'2021-2022'},{Mentor_id: 22, Mentee_id: 81, class_year:'2021-2022'}])

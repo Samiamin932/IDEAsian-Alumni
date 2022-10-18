@@ -24,6 +24,8 @@ class MemberTreesController < ApplicationController
     @mentors = Mentor.all
     @mentees = Mentee.all
     @member_trees = MemberTree.all
+    @mentor_assignments_2021 = MentorAssignment.filter_by_class_year('2021-2022')
+    @mentor_assignments_2022 = MentorAssignment.filter_by_class_year('2022-2023')
     @mentor_assignments = MentorAssignment.all
   end
 
